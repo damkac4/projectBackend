@@ -49,13 +49,17 @@ public class Ogloszenie {
 
 
     public Ogloszenie(String przebieg, String rok, String pojemnosc,
-                      String miejscowosc, String cena, Marka marka) {
+                      String miejscowosc, String cena, Marka marka, Paliwo paliwo,
+                      Model model, Zdjecia zdjecia) {
         this.przebieg = przebieg;
         this.rok = rok;
         this.pojemnosc = pojemnosc;
         this.miejscowosc = miejscowosc;
         this.cena = cena;
         this.marka = marka;
+        this.paliwo = paliwo;
+        this.model = model;
+        this.zdjecia = zdjecia;
 
     }
 }
