@@ -30,27 +30,21 @@ public class Ogloszenie {
     private String pojemnosc;
     private String miejscowosc;
     private String cena;
-//    private Long markaId;
-//    private Long zdjeciaId;
-//    private Long paliwoId;
-//    private Long modelId;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Marka marka;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "paliwo_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Paliwo paliwo;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne
+    @JoinColumn(name = "model_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Model model;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", nullable = false, insertable = false, updatable = false)
-    private Zdjecia zdjecia;
+
 
 
     public Ogloszenie(String przebieg, String rok, String pojemnosc,
                       String miejscowosc, String cena, Marka marka, Paliwo paliwo,
-                      Model model, Zdjecia zdjecia) {
+                      Model model) {
         this.przebieg = przebieg;
         this.rok = rok;
         this.pojemnosc = pojemnosc;
@@ -59,7 +53,6 @@ public class Ogloszenie {
         this.marka = marka;
         this.paliwo = paliwo;
         this.model = model;
-        this.zdjecia = zdjecia;
 
     }
 }
