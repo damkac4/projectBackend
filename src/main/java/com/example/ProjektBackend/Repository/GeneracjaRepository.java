@@ -1,8 +1,6 @@
 package com.example.ProjektBackend.Repository;
 
 import com.example.ProjektBackend.Model.Generacja;
-import com.example.ProjektBackend.Model.Marka;
-import com.example.ProjektBackend.Model.Model;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

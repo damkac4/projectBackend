@@ -25,11 +25,11 @@ public class Ogloszenie {
             generator = "ogloszenie_sequence"
     )
     private Long id;
-    private String przebieg;
-    private String rok;
-    private String pojemnosc;
+    private int przebieg;
+    private int rok;
+    private int pojemnosc;
     private String miejscowosc;
-    private String cena;
+    private int cena;
 
     @ManyToOne
     @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
@@ -43,11 +43,14 @@ public class Ogloszenie {
     @ManyToOne
     @JoinColumn(name = "generacja_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Generacja generacja;
+    @ManyToOne
+    @JoinColumn(name = "nadwozie_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Nadwozie nadwozie;
 
 
-    public Ogloszenie(String przebieg, String rok, String pojemnosc,
-                      String miejscowosc, String cena, Marka marka, Paliwo paliwo,
-                      Model model, Generacja generacja) {
+    public Ogloszenie(int przebieg, int rok, int pojemnosc,
+                      String miejscowosc, int cena, Marka marka, Paliwo paliwo,
+                      Model model, Generacja generacja, Nadwozie nadwozie) {
         this.przebieg = przebieg;
         this.rok = rok;
         this.pojemnosc = pojemnosc;
@@ -57,6 +60,6 @@ public class Ogloszenie {
         this.paliwo = paliwo;
         this.model = model;
         this.generacja = generacja;
-
+        this.nadwozie = nadwozie;
     }
 }
