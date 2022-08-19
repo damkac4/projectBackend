@@ -9,6 +9,5 @@ import java.util.ArrayList;
 
 @Repository
 public interface OgloszenieRepository extends JpaRepository<Ogloszenie, Long> {
-//    @Query(value = "")
-//    ArrayList<String> getAll();
+
 }

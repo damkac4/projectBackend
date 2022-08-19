@@ -11,7 +11,6 @@ import java.util.List;
 public class OgloszenieService {
 
     private final OgloszenieRepository ogloszenieRepository;
-    private Ogloszenie ogloszenie;
 
     @Autowired
     public OgloszenieService(OgloszenieRepository ogloszenieRepository) {
