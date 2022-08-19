@@ -21,7 +21,14 @@ public class ModelService {
 
     public ArrayList<Model> getAll(ArrayList<Marka>list){
 
-        return modelRepository.getAll(list);
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+
+        for(int i = 0; i<list.size();i++)
+        {
+            ids.add(Math.toIntExact(list.get(i).getId()));
+        }
+
+        return modelRepository.getAll(ids);
 
     }
 }

@@ -30,6 +30,7 @@ public class Ogloszenie {
     private String pojemnosc;
     private String miejscowosc;
     private String cena;
+
     @ManyToOne
     @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Marka marka;
@@ -39,12 +40,14 @@ public class Ogloszenie {
     @ManyToOne
     @JoinColumn(name = "model_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Model model;
-
+    @ManyToOne
+    @JoinColumn(name = "generacja_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Generacja generacja;
 
 
     public Ogloszenie(String przebieg, String rok, String pojemnosc,
                       String miejscowosc, String cena, Marka marka, Paliwo paliwo,
-                      Model model) {
+                      Model model, Generacja generacja) {
         this.przebieg = przebieg;
         this.rok = rok;
         this.pojemnosc = pojemnosc;
@@ -53,6 +56,7 @@ public class Ogloszenie {
         this.marka = marka;
         this.paliwo = paliwo;
         this.model = model;
+        this.generacja = generacja;
 
     }
 }
