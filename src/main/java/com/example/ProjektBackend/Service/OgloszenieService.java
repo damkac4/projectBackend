@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OgloszenieService {
@@ -20,6 +21,13 @@ public class OgloszenieService {
 
     }
 
+    public Optional<Ogloszenie> findById(Long id){
+
+        return ogloszenieRepository.findById(id);
+
+    }
+
+
     public List<Ogloszenie> getAll(BodyForm bodyForm) {
 
         Long nadwozieId;
@@ -28,27 +36,17 @@ public class OgloszenieService {
         Long modelId;
         Long generacjaId;
 
-
-
-
-
-
-
-
-
         int cenaOd = bodyForm.getCenaOd();
         int cenaDo = bodyForm.getCenaDo();
         int rokOd = bodyForm.getRokOd();
         int rokDo = bodyForm.getRokDo();
         int przebiegOd = bodyForm.getPrzebiegOd();
         int przebiegDo = bodyForm.getPrzebiegDo();
-//        System.out.println(bodyForm.getNadwozie().getId());
+
         if (bodyForm.getNadwozie() == null && bodyForm.getPaliwo() == null && bodyForm.getMarka() == null) {
             return ogloszenieRepository.getAll(cenaOd, cenaDo, rokOd, rokDo, przebiegOd, przebiegDo);
         } else if (bodyForm.getNadwozie() != null && bodyForm.getPaliwo() == null && bodyForm.getMarka() == null) {
             nadwozieId = bodyForm.getNadwozie().getId();
-            System.out.println(ogloszenieRepository.getAll2(nadwozieId, cenaOd, cenaDo, rokOd, rokDo, przebiegOd, przebiegDo).size());
-
             return ogloszenieRepository.getAll2(nadwozieId, cenaOd, cenaDo, rokOd, rokDo, przebiegOd, przebiegDo);
         } else if (bodyForm.getNadwozie() == null && bodyForm.getPaliwo() != null && bodyForm.getMarka() == null) {
             paliwoId = bodyForm.getPaliwo().getId();
