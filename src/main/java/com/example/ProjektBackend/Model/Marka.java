@@ -27,6 +27,7 @@ public class Marka {
     )
     private Long id;
     private String nazwa;
+    private String kraj;
 
     @JsonIgnore
     @OneToMany(mappedBy = "marka")

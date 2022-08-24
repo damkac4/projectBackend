@@ -30,6 +30,10 @@ public class Ogloszenie {
     private int pojemnosc;
     private String miejscowosc;
     private int cena;
+    private int moc;
+    private String kolor;
+    private String stan;
+    private int spalanie;
 
     @ManyToOne
     @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
@@ -46,20 +50,26 @@ public class Ogloszenie {
     @ManyToOne
     @JoinColumn(name = "nadwozie_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Nadwozie nadwozie;
+    @ManyToOne
+    @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Wlasciciel wlasciciel;
 
-
-    public Ogloszenie(int przebieg, int rok, int pojemnosc,
-                      String miejscowosc, int cena, Marka marka, Paliwo paliwo,
-                      Model model, Generacja generacja, Nadwozie nadwozie) {
+    public Ogloszenie(int przebieg, int rok, int pojemnosc, String miejscowosc, int cena, int moc, String kolor, String stan, int spalanie, Marka marka, Paliwo paliwo,
+                      Model model, Generacja generacja, Nadwozie nadwozie, Wlasciciel wlasciciel) {
         this.przebieg = przebieg;
         this.rok = rok;
         this.pojemnosc = pojemnosc;
         this.miejscowosc = miejscowosc;
         this.cena = cena;
+        this.moc = moc;
+        this.kolor = kolor;
+        this.stan = stan;
+        this.spalanie = spalanie;
         this.marka = marka;
         this.paliwo = paliwo;
         this.model = model;
         this.generacja = generacja;
         this.nadwozie = nadwozie;
+        this.wlasciciel = wlasciciel;
     }
 }

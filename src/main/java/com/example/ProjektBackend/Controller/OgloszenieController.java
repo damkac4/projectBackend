@@ -27,7 +27,6 @@ public class OgloszenieController {
 
     @PostMapping(path = "/sid")
     public Optional<Ogloszenie> findById(@RequestParam Long id)  {
-        System.out.println(id);
         return ogloszenieService.findById(id);
     }
 
