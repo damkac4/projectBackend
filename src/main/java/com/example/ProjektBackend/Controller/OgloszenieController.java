@@ -5,7 +5,9 @@ import com.example.ProjektBackend.Model.Ogloszenie;
 import com.example.ProjektBackend.Service.OgloszenieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,5 +31,13 @@ public class OgloszenieController {
     public Optional<Ogloszenie> findById(@RequestParam Long id)  {
         return ogloszenieService.findById(id);
     }
+
+    @PostMapping("/upload")
+    public void saveUser(@RequestParam("ogloszenie")Ogloszenie ogloszenie, @RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
+
+        ogloszenieService.saveFile(multipartFiles);
+    }
+
+
 
 }

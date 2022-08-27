@@ -5,7 +5,14 @@ import com.example.ProjektBackend.Model.Ogloszenie;
 import com.example.ProjektBackend.Repository.OgloszenieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -20,6 +27,32 @@ public class OgloszenieService {
         this.ogloszenieRepository = ogloszenieRepository;
 
     }
+
+
+    public void saveFile(MultipartFile[] multipartFiles) throws IOException {
+
+//        Long ogloszenieId = ogloszenieRepository.saveAndFlush().getId();
+
+        String uploadDir = "C:\\Users\\dkacp\\Desktop\\frontend\\src\\images\\ogloszenia\\" +6 ;
+        Path uploadPath = Paths.get(uploadDir);
+
+        for (int i = 0; i < multipartFiles.length; i++) {
+
+            int photoNumber = i+1;
+
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+            try (InputStream inputStream = multipartFiles[i].getInputStream()) {
+                Path filePath = uploadPath.resolve(photoNumber+".jpg");
+                Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException ioe) {
+                throw new IOException("Could not save image file: " + photoNumber, ioe);
+            }
+        }
+    }
+
+
 
     public Optional<Ogloszenie> findById(Long id){
 
