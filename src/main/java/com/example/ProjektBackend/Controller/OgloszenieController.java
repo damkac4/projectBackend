@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,11 +34,19 @@ public class OgloszenieController {
         return ogloszenieService.findById(id);
     }
 
-    @PostMapping("/upload")
-    public void saveUser(@RequestParam("ogloszenie")Ogloszenie ogloszenie, @RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
+    @PostMapping("/uploadData")
+    public Long uploadData(@RequestBody Ogloszenie ogloszenie) {
+
+        return ogloszenieService.saveData(ogloszenie);
+    }
+
+    @PostMapping("/uploadImages")
+    public void uploadImages(@RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
 
         ogloszenieService.saveFile(multipartFiles);
+
     }
+
 
 
 

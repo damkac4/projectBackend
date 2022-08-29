@@ -28,6 +28,15 @@ public class OgloszenieService {
 
     }
 
+    public Long saveData(Ogloszenie ogloszenie){
+
+
+        Long ogloszenieId = ogloszenieRepository.saveAndFlush(ogloszenie).getId();
+
+        return ogloszenieId;
+
+    }
+
 
     public void saveFile(MultipartFile[] multipartFiles) throws IOException {
 
@@ -59,6 +68,7 @@ public class OgloszenieService {
         return ogloszenieRepository.findById(id);
 
     }
+
 
 
     public List<Ogloszenie> getAll(BodyForm bodyForm) {

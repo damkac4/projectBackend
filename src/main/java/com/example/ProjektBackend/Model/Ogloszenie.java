@@ -36,22 +36,22 @@ public class Ogloszenie {
     private int spalanie;
 
     @ManyToOne
-    @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false)
     private Marka marka;
     @ManyToOne
-    @JoinColumn(name = "paliwo_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "paliwo_id", referencedColumnName = "id", nullable = false)
     private Paliwo paliwo;
     @ManyToOne
-    @JoinColumn(name = "model_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "model_id", referencedColumnName = "id", nullable = false)
     private Model model;
     @ManyToOne
-    @JoinColumn(name = "generacja_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "generacja_id", referencedColumnName = "id", nullable = false)
     private Generacja generacja;
     @ManyToOne
-    @JoinColumn(name = "nadwozie_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "nadwozie_id", referencedColumnName = "id", nullable = false)
     private Nadwozie nadwozie;
-    @ManyToOne
-    @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id", nullable = false)
     private Wlasciciel wlasciciel;
 
     public Ogloszenie(int przebieg, int rok, int pojemnosc, String miejscowosc, int cena, int moc, String kolor, String stan, int spalanie, Marka marka, Paliwo paliwo,

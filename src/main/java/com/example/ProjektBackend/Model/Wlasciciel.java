@@ -15,15 +15,7 @@ import java.util.Set;
 @Table(name = "wlasciciel")
 public class Wlasciciel {
     @Id
-    @SequenceGenerator(
-            name = "wlasciciel_sequence",
-            sequenceName = "wlasciciel_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "wlasciciel_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String telefon;
     private String mail;
