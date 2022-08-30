@@ -41,9 +41,9 @@ public class OgloszenieController {
     }
 
     @PostMapping("/uploadImages")
-    public void uploadImages(@RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
+    public void uploadImages(@RequestParam("id") Long id,@RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
 
-        ogloszenieService.saveFile(multipartFiles);
+        ogloszenieService.saveFile(multipartFiles, id);
 
     }
 

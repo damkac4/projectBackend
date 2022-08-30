@@ -24,9 +24,5 @@ public class WlascicielController {
         this.wlascicielService = wlascicielService;
     }
 
-    @PostMapping(path = "/saveW")
-    public Long saveW(@RequestBody Wlasciciel wlasciciel)  {
-        return wlascicielService.save(wlasciciel);
-    }
 
 }

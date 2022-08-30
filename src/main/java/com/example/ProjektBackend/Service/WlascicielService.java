@@ -15,11 +15,6 @@ public class WlascicielService {
         this.wlascicielRepository = wlascicielRepository;
     }
 
-    public Long save(Wlasciciel wlasciciel){
-
-        return wlascicielRepository.saveAndFlush(wlasciciel).getId();
-
-    }
 
 
 

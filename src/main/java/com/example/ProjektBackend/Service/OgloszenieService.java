@@ -38,11 +38,10 @@ public class OgloszenieService {
     }
 
 
-    public void saveFile(MultipartFile[] multipartFiles) throws IOException {
+    public void saveFile(MultipartFile[] multipartFiles, Long id) throws IOException {
 
-//        Long ogloszenieId = ogloszenieRepository.saveAndFlush().getId();
 
-        String uploadDir = "C:\\Users\\dkacp\\Desktop\\frontend\\src\\images\\ogloszenia\\" +6 ;
+        String uploadDir = "C:\\Users\\dkacp\\Desktop\\frontend\\src\\images\\ogloszenia\\" +id ;
         Path uploadPath = Paths.get(uploadDir);
 
         for (int i = 0; i < multipartFiles.length; i++) {
