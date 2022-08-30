@@ -3,6 +3,8 @@ package com.example.ProjektBackend.Controller;
 import com.example.ProjektBackend.Model.BodyForm;
 import com.example.ProjektBackend.Model.Ogloszenie;
 import com.example.ProjektBackend.Service.OgloszenieService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -34,16 +36,11 @@ public class OgloszenieController {
         return ogloszenieService.findById(id);
     }
 
-    @PostMapping("/uploadData")
-    public Long uploadData(@RequestBody Ogloszenie ogloszenie) {
 
-        return ogloszenieService.saveData(ogloszenie);
-    }
+    @PostMapping("/upload")
+    public void uploadImages(@RequestParam("ogloszenie") String ogloszenieString,@RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
 
-    @PostMapping("/uploadImages")
-    public void uploadImages(@RequestParam("id") Long id,@RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
-
-        ogloszenieService.saveFile(multipartFiles, id);
+       ogloszenieService.saveFile(multipartFiles, ogloszenieString);
 
     }
 

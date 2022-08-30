@@ -3,6 +3,7 @@ package com.example.ProjektBackend.Service;
 import com.example.ProjektBackend.Model.BodyForm;
 import com.example.ProjektBackend.Model.Ogloszenie;
 import com.example.ProjektBackend.Repository.OgloszenieRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,20 +29,15 @@ public class OgloszenieService {
 
     }
 
-    public Long saveData(Ogloszenie ogloszenie){
 
+    public void saveFile(MultipartFile[] multipartFiles, String ogloszenieString) throws IOException {
+
+
+        Ogloszenie ogloszenie = new ObjectMapper().readValue(ogloszenieString, Ogloszenie.class);
 
         Long ogloszenieId = ogloszenieRepository.saveAndFlush(ogloszenie).getId();
 
-        return ogloszenieId;
-
-    }
-
-
-    public void saveFile(MultipartFile[] multipartFiles, Long id) throws IOException {
-
-
-        String uploadDir = "C:\\Users\\dkacp\\Desktop\\frontend\\src\\images\\ogloszenia\\" +id ;
+        String uploadDir = "C:\\Users\\dkacp\\Desktop\\frontend\\src\\images\\ogloszenia\\" +ogloszenieId ;
         Path uploadPath = Paths.get(uploadDir);
 
         for (int i = 0; i < multipartFiles.length; i++) {
@@ -52,7 +48,7 @@ public class OgloszenieService {
                 Files.createDirectories(uploadPath);
             }
             try (InputStream inputStream = multipartFiles[i].getInputStream()) {
-                Path filePath = uploadPath.resolve(photoNumber+".jpg");
+                Path filePath = uploadPath.resolve(photoNumber+".png");
                 Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException ioe) {
                 throw new IOException("Could not save image file: " + photoNumber, ioe);

@@ -33,7 +33,7 @@ public class Ogloszenie {
     private int moc;
     private String kolor;
     private String stan;
-    private int spalanie;
+    private double spalanie;
 
     @ManyToOne
     @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false)
