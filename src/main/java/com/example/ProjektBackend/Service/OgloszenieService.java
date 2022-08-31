@@ -14,6 +14,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +37,8 @@ public class OgloszenieService {
 
 
         Ogloszenie ogloszenie = new ObjectMapper().readValue(ogloszenieString, Ogloszenie.class);
+        ogloszenie.setGodzina(LocalTime.now(ZoneId.of("Europe/Warsaw")));
+        ogloszenie.setData(LocalDate.now(ZoneId.of("Europe/Warsaw")));
 
         Long ogloszenieId = ogloszenieRepository.saveAndFlush(ogloszenie).getId();
 
@@ -59,12 +64,8 @@ public class OgloszenieService {
 
 
     public Optional<Ogloszenie> findById(Long id){
-
         return ogloszenieRepository.findById(id);
-
     }
-
-
 
     public List<Ogloszenie> getAll(BodyForm bodyForm) {
 

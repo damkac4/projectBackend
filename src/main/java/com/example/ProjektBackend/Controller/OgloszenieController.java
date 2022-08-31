@@ -38,7 +38,7 @@ public class OgloszenieController {
 
 
     @PostMapping("/upload")
-    public void uploadImages(@RequestParam("ogloszenie") String ogloszenieString,@RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
+    public void uploadImages(@RequestParam("ogloszenie") String ogloszenieString, @RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
 
        ogloszenieService.saveFile(multipartFiles, ogloszenieString);
 

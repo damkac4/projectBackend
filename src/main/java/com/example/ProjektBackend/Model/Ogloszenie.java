@@ -3,6 +3,8 @@ package com.example.ProjektBackend.Model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 @Getter
@@ -28,12 +30,16 @@ public class Ogloszenie {
     private int przebieg;
     private int rok;
     private int pojemnosc;
-    private String miejscowosc;
     private int cena;
     private int moc;
     private String kolor;
     private String stan;
     private double spalanie;
+    private String skrzynia;
+    private String bezwypadkowy;
+    private String naped;
+    private LocalDate data;
+    private LocalTime godzina;
 
     @ManyToOne
     @JoinColumn(name = "marka_id", referencedColumnName = "id", nullable = false)
@@ -54,12 +60,11 @@ public class Ogloszenie {
     @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id", nullable = false)
     private Wlasciciel wlasciciel;
 
-    public Ogloszenie(int przebieg, int rok, int pojemnosc, String miejscowosc, int cena, int moc, String kolor, String stan, int spalanie, Marka marka, Paliwo paliwo,
-                      Model model, Generacja generacja, Nadwozie nadwozie, Wlasciciel wlasciciel) {
+    public Ogloszenie(int przebieg, int rok, int pojemnosc, int cena, int moc, String kolor, String stan, int spalanie, Marka marka, Paliwo paliwo,
+                      Model model, Generacja generacja, Nadwozie nadwozie, Wlasciciel wlasciciel, String naped, String skrzynia, String bezwypadkowy) {
         this.przebieg = przebieg;
         this.rok = rok;
         this.pojemnosc = pojemnosc;
-        this.miejscowosc = miejscowosc;
         this.cena = cena;
         this.moc = moc;
         this.kolor = kolor;
@@ -71,5 +76,8 @@ public class Ogloszenie {
         this.generacja = generacja;
         this.nadwozie = nadwozie;
         this.wlasciciel = wlasciciel;
+        this.skrzynia = skrzynia;
+        this.bezwypadkowy = bezwypadkowy;
+        this.naped = naped;
     }
 }

@@ -20,14 +20,18 @@ public class Wlasciciel {
     private String telefon;
     private String mail;
     private String imie;
+    private String miejscowosc;
+    private String wojewodztwo;
 
     @JsonIgnore
     @OneToMany(mappedBy = "wlasciciel")
     private Set<Ogloszenie> ogloszenie;
 
-    public Wlasciciel( String numer, String mail, String imie) {
+    public Wlasciciel( String numer, String mail, String imie, String miejscowosc, String wojewodztwo) {
         this.telefon = numer;
         this.mail = mail;
         this.imie = imie;
+        this.miejscowosc = miejscowosc;
+        this.wojewodztwo = wojewodztwo;
     }
 }
