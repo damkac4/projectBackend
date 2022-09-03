@@ -33,7 +33,7 @@ public class OgloszenieService {
     }
 
 
-    public void saveFile(MultipartFile[] multipartFiles, String ogloszenieString) throws IOException {
+    public Long saveFile(MultipartFile[] multipartFiles, String ogloszenieString) throws IOException {
 
 
         Ogloszenie ogloszenie = new ObjectMapper().readValue(ogloszenieString, Ogloszenie.class);
@@ -59,6 +59,7 @@ public class OgloszenieService {
                 throw new IOException("Could not save image file: " + photoNumber, ioe);
             }
         }
+        return ogloszenieId;
     }
 
 
