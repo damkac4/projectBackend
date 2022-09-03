@@ -39,11 +39,14 @@ public class OgloszenieController {
 
     @PostMapping("/upload")
     public Long uploadImages(@RequestParam("ogloszenie") String ogloszenieString, @RequestParam("images") MultipartFile[] multipartFiles) throws IOException {
-
        return ogloszenieService.saveFile(multipartFiles, ogloszenieString);
-
     }
 
+    @PostMapping("/delete")
+    public void deleteById(@RequestParam Long id){
+
+        ogloszenieService.deleteById(id);
+    }
 
 
 

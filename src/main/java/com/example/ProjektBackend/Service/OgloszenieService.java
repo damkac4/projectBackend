@@ -32,6 +32,11 @@ public class OgloszenieService {
 
     }
 
+    public void deleteById(Long id){
+
+        ogloszenieRepository.deleteById(id);
+
+    }
 
     public Long saveFile(MultipartFile[] multipartFiles, String ogloszenieString) throws IOException {
 
@@ -61,8 +66,6 @@ public class OgloszenieService {
         }
         return ogloszenieId;
     }
-
-
 
     public Optional<Ogloszenie> findById(Long id){
         return ogloszenieRepository.findById(id);
