@@ -43,7 +43,7 @@ public class OgloszenieController {
     }
 
     @PostMapping("/delete")
-    public void deleteById(@RequestParam Long id){
+    public void deleteById(@RequestParam Long id) throws IOException {
 
         ogloszenieService.deleteById(id);
     }

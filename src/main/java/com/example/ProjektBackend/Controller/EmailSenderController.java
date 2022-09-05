@@ -27,15 +27,17 @@ public class EmailSenderController {
         this.templateEngine = templateEngine;
     }
     @PostMapping(path = "/mail")
-    public void send() throws MessagingException {
-
+    public void send(@RequestParam Long id, @RequestParam String imie, @RequestParam String mail) throws MessagingException {
+        System.out.println(id+" "+imie+" "+ mail);
         Context context = new Context();
         context.setVariable("header", "CarhHub");
-        context.setVariable("title", "Twoje ogłoszenie zostało dodane!");
-        context.setVariable("linkDelete", "Tutaj jakis opis...");
-        context.setVariable("linkShow", "Tutaj jakis opis...");
+        context.setVariable("title", "Witaj "+imie+"!"+" Twoje ogłoszenie zostało dodane!");
+
+        context.setVariable("linkShow", "http://localhost:3000/"+id);
+        context.setVariable("linkDelete", "http://localhost:3000/delete/"+id);
+
         String body = templateEngine.process("email", context);
-        emailSender.sendEmail("dkacprzak22@gmail.com", "CarHub - Twoje ogłoszenie zostało dodane", body);
+        emailSender.sendEmail(mail, "CarHub - Twoje ogłoszenie zostało dodane", body);
 
 
     }

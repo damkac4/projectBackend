@@ -21,8 +21,9 @@
         <td height="100" align="center"><h1 th:text="${title}">title</h1></td>
     </tr>
     <tr bgcolor="ffffff">
-        <td height="100" align="center"><button>Zobacz ogłoszenie</button>
-            <a href="http://localhost:3000/"> <button>Usuń ogłoszenie</button></a></td>
+        <td height="100" align="center">
+            <a th:href="${linkShow}"> <button>Zobacz ogłoszenie</button></a>
+            <a th:href="${linkDelete}"> <button>Usuń ogłoszenie</button></a></td>
 
     </tr>
     <tr>
