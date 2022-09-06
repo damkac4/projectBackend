@@ -13,25 +13,25 @@ public interface OgloszenieRepository extends JpaRepository<Ogloszenie, Long> {
 
 
 
-    @Query(value = "Select * from Ogloszenie where cena >= ?1 and cena <= ?2 and rok >= ?3 and rok <= ?4 and przebieg >= ?5 and przebieg <= ?6  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where cena >= ?1 and cena <= ?2 and rok >= ?3 and rok <= ?4 and przebieg >= ?5 and przebieg <= ?6",nativeQuery = true)
     ArrayList<Ogloszenie> getAll(int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
-    @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and cena >= ?2 and cena <= ?3 and rok >= ?4 and rok <= ?5 and przebieg >= ?6 and przebieg <= ?7  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and cena >= ?2 and cena <= ?3 and rok >= ?4 and rok <= ?5 and przebieg >= ?6 and przebieg <= ?7",nativeQuery = true)
     ArrayList<Ogloszenie> getAll2(Long nadwozieId, int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
-    @Query(value = "Select * from Ogloszenie where paliwo_id = ?1 and cena >= ?2 and cena <= ?3 and rok >= ?4 and rok <= ?5 and przebieg >= ?6 and przebieg <= ?7  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where paliwo_id = ?1 and cena >= ?2 and cena <= ?3 and rok >= ?4 and rok <= ?5 and przebieg >= ?6 and przebieg <= ?7",nativeQuery = true)
     ArrayList<Ogloszenie> getAll3(Long paliwoId, int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
-    @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and paliwo_id = ?2 and cena >= ?3 and cena <= ?4 and rok >= ?5 and rok <= ?6 and przebieg >= ?7 and przebieg <= ?8  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and paliwo_id = ?2 and cena >= ?3 and cena <= ?4 and rok >= ?5 and rok <= ?6 and przebieg >= ?7 and przebieg <= ?8",nativeQuery = true)
     ArrayList<Ogloszenie> getAll4(Long nadwozieId, Long paliwoId, int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
-    @Query(value = "Select * from Ogloszenie where marka_id = ?1 and cena >= ?2 and cena <= ?3 and rok >= ?4 and rok <= ?5 and przebieg >= ?6 and przebieg <= ?7  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where marka_id = ?1 and cena >= ?2 and cena <= ?3 and rok >= ?4 and rok <= ?5 and przebieg >= ?6 and przebieg <= ?7",nativeQuery = true)
     ArrayList<Ogloszenie> getAll5(Long markaId, int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
-    @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and marka_id = ?2 and cena >= ?3 and cena <= ?4 and rok >= ?5 and rok <= ?6 and przebieg >= ?7 and przebieg <= ?8  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and marka_id = ?2 and cena >= ?3 and cena <= ?4 and rok >= ?5 and rok <= ?6 and przebieg >= ?7 and przebieg <= ?8",nativeQuery = true)
     ArrayList<Ogloszenie> getAll6(Long nadwozieId, Long markaId, int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
-    @Query(value = "Select * from Ogloszenie where paliwo_id = ?1 and marka_id = ?2 and cena >= ?3 and cena <= ?4 and rok >= ?5 and rok <= ?6 and przebieg >= ?7 and przebieg <= ?8  ",nativeQuery = true)
+    @Query(value = "Select * from Ogloszenie where paliwo_id = ?1 and marka_id = ?2 and cena >= ?3 and cena <= ?4 and rok >= ?5 and rok <= ?6 and przebieg >= ?7 and przebieg <= ?8",nativeQuery = true)
     ArrayList<Ogloszenie> getAll7(Long paliwoId, Long markaId, int cenaOd, int cenaDo, int rokOd, int rokDo, int przebiegOd, int przebiegDo);
 
     @Query(value = "Select * from Ogloszenie where nadwozie_id = ?1 and paliwo_id = ?2 and marka_id = ?3 and cena >= ?4 and cena <= ?5 and rok >= ?6 and rok <= ?7 and przebieg >= ?8 and przebieg <= ?9  ",nativeQuery = true)

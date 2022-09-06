@@ -27,11 +27,11 @@ public class Ogloszenie {
             generator = "ogloszenie_sequence"
     )
     private Long id;
-    private int przebieg;
+    private Long przebieg;
     private int rok;
-    private int pojemnosc;
-    private int cena;
-    private int moc;
+    private Long pojemnosc;
+    private Long cena;
+    private Long moc;
     private String kolor;
     private String stan;
     private double spalanie;
@@ -60,7 +60,7 @@ public class Ogloszenie {
     @JoinColumn(name = "wlasciciel_id", referencedColumnName = "id", nullable = false)
     private Wlasciciel wlasciciel;
 
-    public Ogloszenie(int przebieg, int rok, int pojemnosc, int cena, int moc, String kolor, String stan, int spalanie, Marka marka, Paliwo paliwo,
+    public Ogloszenie(Long przebieg, int rok, Long pojemnosc, Long cena, Long moc, String kolor, String stan, double spalanie, Marka marka, Paliwo paliwo,
                       Model model, Generacja generacja, Nadwozie nadwozie, Wlasciciel wlasciciel, String naped, String skrzynia, String bezwypadkowy) {
         this.przebieg = przebieg;
         this.rok = rok;

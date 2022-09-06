@@ -35,7 +35,6 @@ public class OgloszenieService {
 
         ogloszenieRepository.deleteById(id);
         String uploadDir = "C:\\Users\\dkacp\\Desktop\\frontend\\src\\images\\ogloszenia\\" +id ;
-
         FileUtils.deleteDirectory(new File(uploadDir));
 
     }
@@ -87,6 +86,7 @@ public class OgloszenieService {
         int rokDo = bodyForm.getRokDo();
         int przebiegOd = bodyForm.getPrzebiegOd();
         int przebiegDo = bodyForm.getPrzebiegDo();
+
 
         if (bodyForm.getNadwozie() == null && bodyForm.getPaliwo() == null && bodyForm.getMarka() == null) {
             return ogloszenieRepository.getAll(cenaOd, cenaDo, rokOd, rokDo, przebiegOd, przebiegDo);

@@ -28,6 +28,7 @@ public class OgloszenieController {
 
     @PostMapping(path = "/s")
     public List<Ogloszenie> getAll(@RequestBody BodyForm bodyForm)  {
+
         return ogloszenieService.getAll(bodyForm);
     }
 
